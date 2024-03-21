@@ -1,0 +1,14 @@
+{
+  "showLineNumber": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "New",
+  "attachmentFolderPath": "Attachment",
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "2",
+    "downscalePercent": 100
+  },
+  "alwaysUpdateLinks": true
+}

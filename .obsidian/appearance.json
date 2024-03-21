@@ -1,0 +1,12 @@
+{
+  "accentColor": "#60bea6",
+  "theme": "obsidian",
+  "interfaceFontFamily": "微软雅黑",
+  "baseFontSize": 16,
+  "cssTheme": "Blue Topaz",
+  "translucency": true,
+  "enabledCssSnippets": [
+    "background"
+  ],
+  "textFontFamily": "DejaVu Math TeX Gyre,宋体,微软雅黑"
+}
