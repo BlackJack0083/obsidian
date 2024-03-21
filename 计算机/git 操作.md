@@ -33,6 +33,44 @@ git push -f origin my-feature # 由于有更改，要强制更新
 git branch -D my-feature # 删除my-feature分支
 git pull origin master # 重新同步
 ```
+##### 记录下失败的一次操作。。。
+每次开别的仓库同步时总会出一些问题。。。这次记录一下：
+```bash
+ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'github.com:BlackJack0083/obsidian.git'
+```
+这里的原因是当时创建仓库时候往里面丢了个文件。。。导致两边的文件不一致，一直没办法push上去，解决的办法是先`pull`下来进行同步
+```bash
+git push -u origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'github.com:BlackJack0083/obsidian.git'
+```
+这里的大坑是`master`。。。一定要记得新开的仓库用的是`main`。。
+解决：
+```shell
+ git pull --rebase origin main
+#remote: Enumerating objects: 11, done.
+#remote: Counting objects: 100% (11/11), done.
+#remote: Compressing objects: 100% (9/9), done.
+#remote: Total 11 (delta 0), reused 0 (delta 0), pack-reused 0
+#Unpacking objects: 100% (11/11), 294.81 KiB | 384.00 KiB/s, done.
+#From github.com:BlackJack0083/obsidian
+# * branch            main       -> FETCH_HEAD
+# * [new branch]      main       -> origin/main
+Successfully rebased and updated refs/heads/main.
+hejiakai@LAPTOP-EOPIIVUT:/mnt/c/Users/何嘉凯/Documents/obsidian Vault$ git push origin main
+#Enumerating objects: 1401, done.
+#Counting objects: 100% (1401/1401), done.
+#Delta compression using up to 16 threads
+#Compressing objects: 100% (1381/1381), done.
+#Writing objects: 100% (1400/1400), 139.49 MiB | 1.03 MiB/s, done.
+#Total 1400 (delta 38), reused 0 (delta 0), pack-reused 0
+#remote: Resolving deltas: 100% (38/38), done.
+To github.com:BlackJack0083/obsidian.git
+   eefee17..e1ffafe  main -> main
+```
+
 ### 创建仓库
 `git init` 对仓库进行初始化
 ```shell

@@ -8,24 +8,14 @@
         "type": "tabs",
         "children": [
           {
-            "id": "039802b3dac1de9b",
+            "id": "0a063a08c98d4c82",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily/2024-03-21.md",
+                "file": "计算机/git 操作.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "0a063a08c98d4c82",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.5.11"
               }
             }
           }
@@ -103,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Daily/2024-03-21.md",
+                "file": "计算机/git 操作.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -120,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Daily/2024-03-21.md",
+                "file": "计算机/git 操作.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Daily/2024-03-21.md"
+                "file": "计算机/git 操作.md"
               }
             }
           },
@@ -190,54 +180,54 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "039802b3dac1de9b",
+  "active": "0a063a08c98d4c82",
   "lastOpenFiles": [
-    "Day Planners/June.2023/Day Planner-20230621.md",
-    "Day Planners/Day Planner-20231220.md",
-    "Daily/2024-03-21.md",
-    "Daily/2024.2/2024-02-14.md",
-    "Daily/2024.3/2024-03-20.md",
-    "Daily/2024.3/2024-03-19.md",
-    "Daily/2024.3/2024-03-18.md",
-    "Daily/2024.3/2024-03-17.md",
-    "Daily/2024.3/2024-03-16.md",
-    "Daily/2024.3/2024-03-15.md",
-    "Daily/2024.3/2024-03-14.md",
-    "Daily/2024.3/2024-03-13.md",
-    "Daily/2024.3/2024-03-12.md",
-    "Daily/2024.3/2024-03-11.md",
-    "Daily/2024.3/2024-03-10.md",
-    "Daily/2024.3/2024-03-09.md",
-    "Daily/2024.3/2024-03-08.md",
-    "Daily/2024.3/2024-03-07.md",
-    "Daily/2024.3/2024-03-06.md",
-    "Daily/2024.3/2024-03-05.md",
-    "Daily/2024.3/2024-03-04.md",
-    "Daily/2024.3/2024-03-03.md",
-    "Daily/2024.3/2024-03-02.md",
+    "README.md",
+    "Attachment/作业/Java/9/微信截图_20231113002250.png",
+    "Attachment/作业/Java/9/微信截图_20231113002034.png",
+    "Attachment/作业/Java/9/微信截图_20231112213401.png",
+    "Attachment/作业/Java/9/微信截图_20231112212152.png",
+    "Attachment/作业/Java/9/微信截图_20231112211724.png",
+    "Attachment/作业/Java/9/微信截图_20231112201105.png",
+    "Attachment/作业/Java/9/微信图片_20231112200841.png",
+    "Attachment/作业/Java/9",
+    "Attachment/作业/Java/8/微信截图_20231105164935.png",
+    "Attachment/作业/Java/8/微信截图_20231105161730.png",
+    "Attachment/作业/Java/8/微信截图_20231105161629.png",
+    "Attachment/作业/Java/8",
+    "课程/面向对象/面向对象概述.md",
+    "课程/面向对象/面向对象(类).md",
+    "课程/面向对象/网络通信.md",
+    "课程/面向对象/类的设计与方法重写.md",
+    "课程/面向对象/目录.md",
+    "课程/面向对象/泛型与类的设计.md",
+    "课程/面向对象/方法重载与静态成员.md",
+    "课程/面向对象/文件与IO应用.md",
+    "课程/面向对象/异常及异常处理.md",
+    "课程/面向对象/多线程.md",
+    "课程/面向对象/内部类与接口.md",
+    "课程/面向对象/Java语言入门.md",
+    "课程/面向对象/UML图表.md",
+    "课程/面向对象/Java概述.md",
+    "课程/面向对象/GUI编程.md",
+    "课程/面向对象/final与abstract修饰符.md",
+    "课程/博弈论/完全信息静态博弈——混合战略问题.md",
+    "课程/博弈论/博弈论(Game Theory).md",
+    "课程/面向对象",
+    "课程/郝斌数据结构+大话数据结构.md",
+    "课程/遥感地学分析.md",
+    "课程/博弈论",
+    "课程",
+    "读书笔记/马克思主义基本原理读书报告.md",
+    "读书笔记/一席·农民工问题【仇凤仙】.md",
+    "读书笔记/《计算社会学》读书笔记.md",
+    "读书笔记/《巴拉巴西网络科学》.md",
+    "读书笔记",
+    "New/计组 chapter 2 数据信息的表示.md",
+    "New",
+    "Excalidraw",
     "Daily/2024.3",
-    "Daily/新建文件夹",
-    "Daily/2024.1/2024-01-31.md",
-    "Daily/2024.1/2024-01-28.md",
-    "Daily/2024.1/2024-01-26.md",
-    "Daily/2024.1",
     "Daily/2024.2",
-    "Attachment/算法基础课/11.25后/微信截图_20240317111724.png",
-    "Attachment/算法基础课/11.25后/微信截图_20240317111705.png",
-    "计算机",
-    "作业/计算机组成原理",
-    "Attachment/作业/计算机组成原理/微信截图_20240316104244.png",
-    "Attachment/作业/计算机组成原理/微信截图_20240316102700.png",
-    "Attachment/作业/计算机组成原理/微信截图_20240316102558.png",
-    "Attachment/作业/计算机组成原理/微信截图_20240316102415.png",
-    "Attachment/作业/计算机组成原理/微信截图_20240316101628.png",
-    "Attachment/作业/计算机组成原理/微信截图_20240316101032.png",
-    "Attachment/作业/计算机组成原理/微信截图_20240316095426.png",
-    "Attachment/作业/计算机组成原理/微信截图_20240316094923.png",
-    "Attachment/作业/计算机组成原理",
-    "Attachment/作业/新建文件夹",
-    "Attachment/课程/算法",
-    "Attachment/课程/课程",
     "未命名.canvas",
     "未命名 1.canvas"
   ]
