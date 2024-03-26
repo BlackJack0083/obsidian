@@ -13,13 +13,50 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机/git 操作.md",
+                "file": "complex network/文献阅读.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5368fffeb0976783",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "算法笔记/叶老笔记/basic algorithm.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f7f918a649593452",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Daily/2024-03-26.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6a5d8ebaae8b429d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Daily/2024-03-26.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -69,7 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 232.5
+    "width": 220.5
   },
   "right": {
     "id": "1ca37ae03e7369f2",
@@ -93,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机/git 操作.md",
+                "file": "Daily/2024-03-26.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -110,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机/git 操作.md",
+                "file": "Daily/2024-03-26.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机/git 操作.md"
+                "file": "Daily/2024-03-26.md"
               }
             }
           },
@@ -161,7 +198,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 296.5
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -180,9 +218,34 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "0a063a08c98d4c82",
+  "active": "6a5d8ebaae8b429d",
   "lastOpenFiles": [
-    "README.md",
+    "Daily/2024-03-26.md",
+    "New/SQL语言.md",
+    "complex network/文献阅读.md",
+    "作业/计算机组成原理/计算机组成原理_实验4汉字编码实验_何嘉凯202211079261.md",
+    "作业/计算机组成原理/计算机组成原理_实验3_何嘉凯_202211079261.md",
+    "Daily/2024-03-25.md",
+    "算法笔记/叶老笔记/basic algorithm.md",
+    "New/空间叠置和缓冲区分析.md",
+    "New/Sci 阅读训练营.md",
+    "New/Voronoi图.md",
+    "计算机/bug修复.md",
+    "New/选题讨论3.21.md",
+    "New/未命名.md",
+    "算法笔记/图论.md",
+    "算法笔记/前缀和.md",
+    "算法-孙波/拼写校正.md",
+    "Daily/2024-03-23.md",
+    "作业/计算机组成原理/计算机组成原理_实验2_何嘉凯_202211079261.md",
+    "计算机/汉字表示法.md",
+    "Daily/2024-03-22.md",
+    "杂七杂八/Markdown 语法.md",
+    "课程/知识表示与处理.md",
+    "Daily/2024-03-21.md",
+    "算法笔记/栈/栈与栈相关应用.md",
+    "Daily/2023.12/2023-12-28.md",
+    "complex network/Project相关数据收集.md",
     "Attachment/作业/Java/9/微信截图_20231113002250.png",
     "Attachment/作业/Java/9/微信截图_20231113002034.png",
     "Attachment/作业/Java/9/微信截图_20231112213401.png",
@@ -195,35 +258,10 @@
     "Attachment/作业/Java/8/微信截图_20231105161730.png",
     "Attachment/作业/Java/8/微信截图_20231105161629.png",
     "Attachment/作业/Java/8",
-    "课程/面向对象/面向对象概述.md",
-    "课程/面向对象/面向对象(类).md",
-    "课程/面向对象/网络通信.md",
-    "课程/面向对象/类的设计与方法重写.md",
-    "课程/面向对象/目录.md",
-    "课程/面向对象/泛型与类的设计.md",
-    "课程/面向对象/方法重载与静态成员.md",
-    "课程/面向对象/文件与IO应用.md",
-    "课程/面向对象/异常及异常处理.md",
-    "课程/面向对象/多线程.md",
-    "课程/面向对象/内部类与接口.md",
-    "课程/面向对象/Java语言入门.md",
-    "课程/面向对象/UML图表.md",
-    "课程/面向对象/Java概述.md",
-    "课程/面向对象/GUI编程.md",
-    "课程/面向对象/final与abstract修饰符.md",
-    "课程/博弈论/完全信息静态博弈——混合战略问题.md",
-    "课程/博弈论/博弈论(Game Theory).md",
     "课程/面向对象",
-    "课程/郝斌数据结构+大话数据结构.md",
-    "课程/遥感地学分析.md",
     "课程/博弈论",
     "课程",
-    "读书笔记/马克思主义基本原理读书报告.md",
-    "读书笔记/一席·农民工问题【仇凤仙】.md",
-    "读书笔记/《计算社会学》读书笔记.md",
-    "读书笔记/《巴拉巴西网络科学》.md",
     "读书笔记",
-    "New/计组 chapter 2 数据信息的表示.md",
     "New",
     "Excalidraw",
     "Daily/2024.3",
