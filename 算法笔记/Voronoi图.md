@@ -1,5 +1,6 @@
 一开始看感觉没什么问题，结果仔细想一直没想清楚一开始是怎么构建多边形的。。。在这里详细进行介绍
-
+相关链接：[技术分享：Delaunay三角剖分算法介绍 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/459884570)
+[从自然到空间-认识Voronoi（泰森多边形） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/48252861)
 # 基本介绍
 **沃罗诺伊图**（Voronoi Diagram，也称作Dirichlet tessellation，狄利克雷镶嵌）是由乌克兰数学家[格奥尔吉·沃罗诺伊](https://zh.wikipedia.org/wiki/%E6%A0%BC%E5%A5%A5%E5%B0%94%E5%90%89%C2%B7%E6%B2%83%E7%BD%97%E8%AF%BA%E4%BC%8A)建立的空间分割算法。灵感来源于[笛卡尔](https://zh.wikipedia.org/wiki/%E7%AC%9B%E5%8D%A1%E5%B0%94 "笛卡尔")用凸域分割空间的思想。在几何、晶体学、建筑学、地理学、气象学、信息系统等许多领域有广泛的应用。
 
