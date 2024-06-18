@@ -1273,4 +1273,15 @@ origin  git@github.com:BlackJack0083/first-repo.git (push)
 ### git 版本管理规范
 ![[微信截图_20240309112713.png|500]]
 
+### github 图床管理
+图床一般是指储存图片的服务器，有国内和国外之分。国外的图床由于有空间距离等因素决定访问速度很慢影响图片的显示速度。国内也分为单线空间、多线空间和cdn加速三种
+
+CDN是构建在数据网络上的一种分布式的内容分发网。CDN的作用是采用流媒体服务器集群技术，克服单机系统输出带宽以及并发能力不足的缺点，可极大提升系统支持的并发流数目，减少或避免单点失效带来的不良影响
+
+- 首先创建仓库
+- 下载picgo，进入图床设置
+![image.png](https://cdn.jsdelivr.net/gh/BlackJack0083/image@main/img/20240414113947.png)
+- 输入相关内容，在github上获得token
+`setting` -> `Developer Setting` -> `Personal access token` -> `tokens(classic)` 即可选择生成
+
 

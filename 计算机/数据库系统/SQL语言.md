@@ -1,3 +1,8 @@
+### 数据类型
+`numeric(a,b)` `a`表示总共的位数，`b`表示小数位
+`char`用ascii编码，每个汉字需要两个宽度
+`nchar`用的是unicode编码，一个宽度即可表示汉字
+
 `select` 查询
 `from` 连接
 `as` 起别名
@@ -249,3 +254,307 @@ delete from student
 DELETE FROM Sc WHERE sno IN (SELECT sno FROM Student WHERE sname='lin')
 ```
 
+### 数据完整性
+设置主键
+```sql
+CREATE TABLE Student1 (
+Sno CHAR(8), 
+Sname CHAR(20) UNIQUE, 
+Ssex CHAR(6), 
+Sbirthdate Date, 
+Smajor VARCHAR(40), 
+PRIMARY KEY(Sno) );
+```
+设计索引实际上是系统中设计B+树，通过索引进行查找
+##### 参照完整性
+设置外键
+```sql
+CREATE TABLE SC (  
+Sno CHAR(8),  
+Cno CHAR(5),  
+Grade SMALLINT,  
+Semester CHAR(5),  
+Teachingclass CHAR(8),  
+PRIMARY KEY (Sno, Cno),  
+FOREIGN KEY (Sno) REFERENCES Student(Sno),  
+FOREIGN KEY (Cno) REFERENCES Course(Cno)  
+);
+```
+
+设置违约处理
+```sql
+CREATE TABLE SC (  
+Sno CHAR(8),  
+Cno CHAR(5),  
+Grade SMALLINT,  
+Semester CHAR(5),  
+Teachingclass CHAR(8),  
+PRIMARY KEY (Sno, Cno),  
+FOREIGN KEY(Sno) REFERENCES Student(Sno)  
+ON DELETE CASCADE  
+ON UPDATE CASCADE,  
+FOREIGN KEY (Cno) REFERENCES Course (Cno)  
+ON DELETE NO ACTION 
+ON UPDATE CASCADE 
+);
+```
+
+属性约束
+- not null
+```sql
+CREATE TABLE SC (  
+Sno CHAR(8) NOT NULL,  
+Cno CHAR(5) NOT NULL,  
+Grade SMALLINT NOT NULL,  
+Semester CHAR(5),  
+Teachingclass CHAR(8),  
+PRIMARY KEY (Sno,Cno)  
+);
+```
+- unique
+```sql
+CREATE TABLE School (  
+Shno CHAR(8) PRIMARY KEY,  
+SHname VARCHAR(40) UNIQUE,  
+SHfounddate Date );
+```
+- check
+```sql
+CREATE TABLE Student (
+Sno CHAR(8) PRIMARY KEY,  
+Sname CHAR(20) NOT NULL,  
+Ssex CHAR(6) CHECK (Ssex IN('男','女'))，  
+Sbirthdate Date,
+Smajor VARCHAR(40) );
+```
+多列约束
+```sql
+CREATE TABLE Student (  
+Sno CHAR(8),  
+Sname CHAR(20) NOT NULL,  
+Ssex CHAR(6),  
+Sbirthdate Date,  
+Smajor VARCHAR(40),  
+PRIMARY KEY(Sno),  
+CHECK (Ssex='女' OR Sname NOT LIKE 'Ms.%') ); -- %表示0或多个字符
+```
+
+`constraint` 完整性约束语句
+```sql
+CREATE TABLE Student (  
+Sno CHAR(8)  
+CONSTRAINT C1 CHECK (Sno BETWEEN '10000000' AND '29999999'),  
+Sname CHAR(20)  
+CONSTRAINT C2 NOT NULL,  
+Sbirthdate Date  
+CONSTRAINT C3 CHECK (Sbirthdate > '1980-1-1'),  
+Ssex CHAR(6)  
+CONSTRAINT C4 CHECK (Ssex IN ('男', '女')),  
+Smajor VARCHAR(40),  
+CONSTRAINT StudentKey PRIMARY KEY (Sno) );
+```
+
+修改约束
+对于没有命名的约束，一般直接在server中删除，但如果设置了变量名，可以用`alter table 表名 drop 约束`删除后，再重新增加约束
+```sql
+ALTER TABLE Student  
+DROP CONSTRAINT C1;
+
+ALTER TABLE Student  
+ADD CONSTRAINT C1 CHECK (Sno BETWEEN '900000' AND '999999');
+```
+
+- 设置默认值
+`default`
+```sql
+CREATE TABLE table8 (
+c1 int, 
+c2 int DEFAULT 2*5, 
+c3 datetime DEFAULT getdate() );
+
+INSERT table8 (c1) VALUES (1)  -- 只输入第一个值，其余默认
+SELECT * FROM table8
+```
+
+```sql
+CREATE TABLE table8b (  
+c1 int,  
+c2 int,  
+c3 datetime );
+
+ALTER TABLE table8b ADD CONSTRAINT con1 DEFAULT 2*5 FOR c2 -- 把约束的值绑定到c2 
+ALTER TABLE table8b ADD CONSTRAINT con2 DEFAULT getdate() FOR c3
+INSERT table8b(c1) VALUES (1)
+SELECT * FROM table8b
+```
+
+### 索引
+```sql
+create unique index idxCname on course(cname) -- 创建索引
+drop index course.idxcname  -- 删除索引
+```
+
+### 视图
+```sql
+CREATE VIEW CS_Student AS 
+SELECT sno, sname, sex, age, dept 
+FROM student 
+WHERE dept='CS' 
+WITH CHECK OPTION; 
+```
+
+- 视图查询
+```sql
+SELECT sno, sname 
+FROM studentBirth 
+WHERE Birthyear<=2003; 
+```
+
+- 通过视图可以反向更新表
+```sql
+update cs_student set sname='王老五'
+where sname = '王五'
+```
+但是对于非基本表(如运算结果等)则无法更新
+```sql
+update studentGradeAVG set savg = 88 
+where sno = 'S2'
+
+/*对视图或函数 'studentGradeAVG' 的更新或插入失败，因其包含派生域或常量域。*/
+```
+
+- 视图删除某行
+```sql
+delete from cs_student where sno = 'S11'
+```
+
+- 视图定义更改
+```sql
+ALTER VIEW studentDegree  
+AS  
+SELECT sname AS 姓名, cname AS 课程, grade AS 成绩  
+FROM student, course, sc  
+WHERE student.sno=sc.sno  
+AND course.cno=sc.cno
+```
+
+- 视图/表重命名
+```sql
+exec sp_rename studentDegree, studentGrade
+```
+
+- 查看视图信息
+```sql
+exec sp_helptext view_1  
+
+Text
+--------------------------------------------------------------------------
+CREATE VIEW studentDegree 
+AS 
+SELECT sname AS 姓名, cname AS 课程, grade AS 成绩 
+FROM student, course, sc 
+WHERE student.sno=sc.sno 
+AND course.cno=sc.cno
+```
+
+```sql
+exec sp_helpdb 查询数据库
+```
+
+- 删除视图
+```sql
+DROP VIEW studentBirth;
+```
+
+### 存储过程
+- 创建存储过程
+```sql
+create procedure maxgrade
+as 
+select max(grade) 最高分 from sc
+go
+```
+
+- 建立好了就可以直接执行
+```sql
+exec studDegree
+```
+
+- 在查询过程中传递参数
+```sql
+CREATE PROCEDURE 存储过程名(参数列表) AS SQL语句
+```
+
+两种方式：
+1. 传递的参数和定义时的参数顺序一致
+2. EXEC 存储过程名 实参列表
+3. 采用“参数=值”的形式，参数顺序可任意
+4. EXEC 存储过程名 参数1=值1, 参数2=值2, …
+
+```sql
+CREATE PROCEDURE detail (@no char(10)) AS  
+SELECT student.sno, sname, cname, grade  
+FROM student, course, sc  
+WHERE student.sno = @no  
+AND student.sno = sc.sno  
+AND course.cno = sc.cno
+-- 两种传参方式
+EXEC detail 'S1'
+
+EXEC detail @no='S1'
+```
+
+- 添加默认值
+```sql
+CREATE PROCEDURE detail2 (@no char(10)='S1') AS  
+SELECT student.sno, sname, cname, grade  
+FROM student, course, sc  
+WHERE student.sno=@no  
+AND student.sno=sc.sno  
+AND course.cno=sc.cno
+```
+
+- 存储过程的返回参数
+```sql
+CREATE PROCEDURE average (  
+@st_no char(10),  
+@st_name char(8) OUTPUT,  /*返回参数*/  
+@st_avg float OUTPUT  /*返回参数*/  
+) AS  
+SELECT @st_name=sname, @st_avg=AVG(grade)  
+FROM student, sc  
+WHERE student.sno=sc.sno  
+GROUP BY student.sno, sname  
+HAVING student.sno=@st_no  
+/*存储过程average返回两个参数@st_name和＠st_avg*/
+
+DECLARE @st_name char(10)
+
+DECLARE @st_avg float
+
+EXEC average 'S1', @st_name OUTPUT, @st_avg OUTPUT
+
+SELECT @st_name as 姓名, @st_avg as 平均分
+```
+
+- 管理存储过程
+(1) `sp_help [name]`：显示存储过程的参数及其数据类型
+(2) `sp_helptext [name]`：显示存储过程的源代码
+(3) `sp_depends [name]`：显示和存储过程相关的数据库对象
+(4) `sp_stored_procedures`：返回当前数据库中的存储过程列表
+
+### 登录名和数据库用户的区别
+在SQL Server中，`zhang3`和`zhang3db1`通常代表不同的概念：
+
+1. **zhang3**：这通常指的是一个**登录名**（Login），也就是一个用于连接到SQL Server实例的凭据。登录名可以是SQL Server验证的账户，也可以是Windows验证的账户。登录名拥有连接到SQL Server实例的权限，并且可以访问实例级别的资源。
+
+2. **zhang3db1**：这通常指的是一个**数据库用户**，是在特定数据库（如`db1`）中创建的。数据库用户与登录名相关联，但它们存在于数据库的上下文中，并且它们的权限是针对特定数据库的。数据库用户继承自它们所属的角色，包括`public`角色，并且可以被授予或拒绝数据库内对象的特定权限。
+
+**区别**：
+
+- **范围**：登录名是实例级别的，而数据库用户是特定于数据库的。
+- **权限**：登录名的权限影响其在SQL Server实例中的所有数据库，除非在特定数据库中明确更改。数据库用户的权限仅限于它们被创建的数据库。
+- **关联性**：一个登录名可以映射到一个或多个数据库用户，而一个数据库用户只能与一个登录名关联。
+- **安全性**：管理登录名的权限涉及控制谁可以登录到SQL Server实例，而管理数据库用户的权限涉及控制用户在特定数据库中的操作。
+
+在实际使用中，当一个用户使用登录名`zhang3`成功登录到SQL Server实例后，如果存在与该登录名相关联的数据库用户（如`zhang3db1`），则该用户在`db1`数据库中将以`zhang3db1`用户的身份执行操作，并且只能行使该用户在`db1`数据库中被授予的权限。如果没有创建特定的数据库用户，登录名也可以直接在数据库中作为用户，但这种情况下权限管理可能会变得不够灵活和安全。
